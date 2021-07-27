@@ -1,0 +1,15 @@
+--en orden 
+
+pip install djangorestframework
+
+python manage.py makemigrations
+
+python manage.py migrate
+
+python manage.py createsuperuser  (admin)
+user: (el que desee)
+pass: (8 caracteres como min)
+luego poner la opcion "Y"
+
+python manage.py runserver
+

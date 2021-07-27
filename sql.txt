@@ -1,10 +1,11 @@
 --crear usuario en la base de datos
 
+alter session set "_ORACLE_SCRIPT"=true;
 create user transveral identified by "prueba";
 grant connect, resource to transveral;
 alter user transveral default tablespace users quota unlimited on users;
 
-
+puerto: 1521
 
 
 --carro de compras
