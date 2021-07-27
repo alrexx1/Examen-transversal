@@ -1,0 +1,65 @@
+{% extends 'core/main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container">
+    <h2>Datos de envio</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="hidden" name='usuario' value="1">
+        {{ form.as_p }}
+        <button type="submit" class="">Save</button>
+    </form>
+
+    <h2>Estado de pedidos</h2>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">N°Despacho</th>
+                <th scope="col">Origen Despacho</th>
+                <th scope="col">Ubicacion Actual</th>
+                <th scope="col">N° venta</th>
+                <th scope="col">Estado Actual</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tbody>
+            {% for despacho in despachos %}
+        
+            <tr>
+                <th scope="row">{{despacho.id}}</th>
+                <td>{{despacho.origen}}</td>
+                <td>{{despacho.ubicacion}}</td>
+                <td>{{despacho.venta.id}}</td>
+                <td>{{despacho.estado}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </tbody>
+    </table>
+
+    <h2>Historial de Compras</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">n°venta</th>
+                <th scope="col">Fecha de compra</th>
+                <th scope="col">Monto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for venta in ventas %}
+
+            <tr>
+                <th scope="row">{{venta.id}}</th>
+                <td>{{venta.fecha}}</td>
+                <td>{{venta.monto}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

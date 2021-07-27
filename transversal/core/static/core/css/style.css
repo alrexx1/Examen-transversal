@@ -1,0 +1,19 @@
+body {
+  min-height: 67.5vh;
+  position: relative;
+}
+
+.productos {
+  text-decoration: unset !important;
+}
+
+#content-wrap {
+  padding-bottom: 140px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+}

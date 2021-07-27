@@ -1,0 +1,109 @@
+{% extends 'core/main.html' %}
+{% load static %}
+
+{% block content %}
+
+<h2>____¡Ropa para tu can!____</h2>
+<!--Section: Block Content-->
+<section class="mb-5">
+
+    <div class="row">
+        <div class="col-md-6 mb-4 mb-md-0">
+
+            <div id="mdb-lightbox-ui"></div>
+
+            <div class="mdb-lightbox">
+
+                <div class="row product-gallery mx-1">
+
+                    <div class="col-12 mb-0">
+                        <figure class="view overlay rounded z-depth-1 main-img">
+                            <a href="core/img/ropa1.jpg"
+                                data-size="710x823">
+                                <img src="{% static 'core/img/ropa1.jpg'%}"
+                                    class="img-fluid z-depth-1">
+                            </a>
+                        </figure>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-6">
+
+            <h5>Ropa de fantasia para animales</h5>
+            <p class="mb-2 text-muted text-uppercase small">Ropa</p>
+            <p><span class="mr-1"><strong>$12.000</strong></span></p>
+            <p class="pt-1">Materiales cómodos ,para que los perros  se muevan con total libertad, no se sientan extraños y además, que no les provoquen molestias o algún tipo de alergia en su piel..</p>
+            <div class="table-responsive">
+                <table class="table table-sm table-borderless mb-0">
+                    <tbody>
+                        <tr>
+                            <th class="pl-0 w-25" scope="row"><strong>Modelo</strong></th>
+                            <td>Shirt 5407X</td>
+                        </tr>
+                        <tr>
+                            <th class="pl-0 w-25" scope="row"><strong>Color</strong></th>
+                            <td>Black</td>
+                        </tr>
+                        <tr>
+                            <th class="pl-0 w-25" scope="row"><strong>Delivery</strong></th>
+                            <td>A todo chile</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+            <div class="table-responsive mb-2">
+                <table class="table table-sm table-borderless">
+                    <tbody>
+                        <tr>
+                            <td class="pl-0 pb-0 w-25">Cantidad</td>
+                            <td class="pb-0">Selecciona una talla</td>
+                        </tr>
+                        <tr>
+                            <td class="pl-0">
+                                <div class="def-number-input number-input safari_only mb-0">
+
+                                    <input class="quantity" min="0" max="10" name="quantity" value="1" type="number">
+
+                                </div>
+                            </td>
+                            <td>
+                                <div class="mt-1">
+                                    <div class="form-check form-check-inline pl-0">
+                                        <input type="radio" class="form-check-input" id="small"
+                                            name="materialExampleRadios" checked>
+                                        <label class="form-check-label small text-uppercase card-link-secondary"
+                                            for="small">Small</label>
+                                    </div>
+                                    <div class="form-check form-check-inline pl-0">
+                                        <input type="radio" class="form-check-input" id="medium"
+                                            name="materialExampleRadios">
+                                        <label class="form-check-label small text-uppercase card-link-secondary"
+                                            for="medium">Medium</label>
+                                    </div>
+                                    <div class="form-check form-check-inline pl-0">
+                                        <input type="radio" class="form-check-input" id="large"
+                                            name="materialExampleRadios">
+                                        <label class="form-check-label small text-uppercase card-link-secondary"
+                                            for="large">Large</label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button type="button" class="btn btn-primary btn-md mr-1 mb-2">Comprar ahora</button>
+            <a href="buy.html"a></a>
+            <button type="button" class="btn btn-light btn-md mr-1 mb-2"><i class="fas fa-shopping-cart pr-2"></i>añadir a
+                la cesta</button>
+        </div>
+    </div>
+
+</section>
+<!--Section: Block Content-->
+
+{% endblock %}

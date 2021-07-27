@@ -1,0 +1,11 @@
+--crear usuario en la base de datos
+
+create user transveral identified by "prueba";
+grant connect, resource to transveral;
+alter user transveral default tablespace users quota unlimited on users;
+
+
+
+
+--carro de compras
+https://www.alibabacloud.com/blog/develop-a-cart-application-with-django_594697

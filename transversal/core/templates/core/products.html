@@ -1,0 +1,81 @@
+{% extends 'core/main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<section class="container mt-5">
+    <form method="POST" >
+        {% csrf_token %}
+    <div class="row">
+        <div class="col-md-6 mb-4 mb-md-0">
+
+            <div id="mdb-lightbox-ui"></div>
+            <div class="mdb-lightbox">
+                <div class="row product-gallery mx-1">
+                    <div class="col-12 mb-0">
+                        <figure class="view overlay rounded z-depth-1 main-img">
+                                <img src="{% static producto.imagen %}"
+                                    class="img-fluid z-depth-1">
+                            </a>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+         
+
+            <h5>{{producto.nombre}}</h5>
+            <p class="mb-2 text-muted text-uppercase small">{{producto.tipo_producto}}</p>
+            {% if producto.precio_oferta == 0 %}
+            <span class="text-danger mr-1">${{producto.precio}}</span>
+        
+            {% else %}
+            <span class="text-danger mr-1">${{producto.precio_oferta}}</span>
+            <span class="text-grey"><s>${{producto.precio}}</s></span>
+            {% endif %}
+        
+            <p class="pt-1">{{producto.descripcion}}</p>
+        
+            <div class="table-responsive">
+                <table class="table table-sm table-borderless mb-0">
+                    <tbody>
+                        <tr>
+                            <th class="pl-0 w-25" scope="row"><strong>Stock</strong></th>
+                            <td>{{producto.stock}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+            <div class="table-responsive mb-2">
+                <table class="table table-sm table-borderless">
+                    <tbody>
+                        <tr>
+                            <td class="pl-0 pb-0 w-25">Cantidad</td>
+                        </tr>
+                        <tr>
+                            <td class="pl-0">
+                                <div class="def-number-input number-input safari_only mb-0">
+                                    {{ form.cantidad}}
+                                    <input type="hidden" name="producto" value="{{producto.id}}">
+                                </div>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+                <button type="submit"  name="buy" value="1"  class="btn btn-primary btn-md mr-1 mb-2">Comprar</button>
+
+                <button  type="submit" name="addCart" value="1" class="btn btn-light btn-md mr-1 mb-2">
+                    <i class="fas fa-shopping-cart pr-2"></i>Añadir al carro
+                </button>
+        </div>
+    </div>  
+    </form>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,197 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>main</title>
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0959a1f36e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">bienvenido</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'home' %}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Checkout
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{% url 'checkout'%}">Checkout</a></li>
+                        
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    
+                </li>
+            </ul>
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="{% url 'buy' %}" >
+                        <span class="badge rounded-pill bg-danger">{{extra.cantidad}}</span>
+                        <i class="fas fa-shopping-cart pl-0"></i>
+                    </a>                                 
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'profile' %}">Tu cuenta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="{% url 'logout' %}">Salir</a>
+                </li>
+            </ul>
+            {% else %}
+
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link"  href="{% url 'signup' %}">Crea tu cuenta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="{% url 'login' %}">Ingresa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="#">carrito</a>
+                </li>
+             </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<div id="content-wrap">
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+
+
+<footer class="text-center text-lg-start bg-light text-muted ">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <div class="me-5 d-none d-lg-block">
+            <span>Conectate a nuestras redes sociales:</span>
+        </div>
+        <div>
+            <a href="https://www.facebook.com/" class="me-4 text-reset">
+                <i class="fab fa-facebook-f">@AloMascotas</i>
+            </a>
+            <a href="https://twitter.com/" class="me-4 text-reset">
+                <i class="fab fa-twitter">@AloMascotas</i>
+            </a>
+            <a href="https://www.google.cl/?gws_rd=ssl" class="me-4 text-reset">
+                <i class="fab fa-google">AloMascotas</i>
+            </a>
+            <a href="https://www.instagram.com/" class="me-4 text-reset">
+                <i class="fab fa-instagram">@AloMascotas</i>
+            </a>
+            <a href="https://www.linkedin.com/" class="me-4 text-reset">
+                <i class="fab fa-linkedin">@AloMascotas</i>
+            </a>
+            <a href="https://github.com/" class="me-4 text-reset">
+                <i class="fab fa-github">@AloMascotas</i>
+            </a>
+        </div>
+    </section>
+    <section class="">
+        <div class="container text-center text-md-start mt-5">
+            <div class="row mt-3">
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fas fa-gem me-3"></i>AloMascotas 
+                    </h6>
+                    <p>
+                        Página principal de nuestros productos, facil y rapido.
+                        No dudes en contactarnos! :slight_smile:.
+                    </p>
+                </div>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Productos
+                    </h6>
+                    <p>
+                        <a href="#!" class="text-reset">Angular</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">React</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Vue</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Laravel</a>
+                    </p>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        links de ayuda
+                    </h6>
+                    <p>
+                        <a href="#!" class="text-reset">Precios</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Ajustes</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">ordenes</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Ayuda</a>
+                    </p>
+                </div>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        Contactos
+                    </h6>
+                    <p><i class="fas fa-home me-3"></i> Santo Domingo, 518 Av. Teresa</p>
+                    <p>
+                        <i class="fas fa-envelope me-3"></i>
+                        info.alomascotas@cclmd.com
+                    </p>
+                    <p><i class="fas fa-phone me-3"></i> + 569 54765715</p>
+                    <p><i class="fas fa-print me-3"></i> + 569 53231017</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2021 Copyright:AloMascotas
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+</footer>
+
+
+</body>
+
+</html>
